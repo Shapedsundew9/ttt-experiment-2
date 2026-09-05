@@ -1,0 +1,9 @@
+{
+  "total_terminal_paths": 152,
+  "wins": 142,
+  "draws": 10,
+  "losses": 0,
+  "illegal_moves_detected": 0,
+  "max_search_depth": 9,
+  "oracle_zero_defect_invariant": true
+}

@@ -1,0 +1,26 @@
+{
+  "experiment_id": "EXP-2026-001a",
+  "status": "COMPLETED",
+  "timestamp_utc": "2026-09-05T21:55:27.779688+00:00",
+  "duration_seconds": 0.1081,
+  "total_reachable_x_states": 2423,
+  "uci_endgames_verified": 958,
+  "game_tree_paths": 152,
+  "oracle_losses": 0,
+  "comparison_metrics": {
+    "n_interleaved": 141,
+    "n_dual_bitboard": 123,
+    "decoder_penalty_gates": 18,
+    "gate_count_reduction_delta_n": 0.1277,
+    "gate_count_reduction_pct": 12.77,
+    "d_interleaved": 8,
+    "d_dual_bitboard": 7,
+    "dag_depth_reduction_delta_d": 0.125,
+    "dag_depth_reduction_pct": 12.5,
+    "threshold_gate_reduction": 0.2,
+    "threshold_depth_reduction": 0.25,
+    "gate_reduction_passed": false,
+    "depth_reduction_passed": false,
+    "overall_synthesis_passed": false
+  }
+}

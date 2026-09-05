@@ -1,0 +1,50 @@
+{
+  "experiment_id": "EXP-2026-001a",
+  "milestone": "Milestone 1 / Rung 1",
+  "timestamp_utc": "2026-09-05T21:56:18.515940+00:00",
+  "status": "PARTIAL_SUPPORT",
+  "hypothesis_verdicts": {
+    "h0_1_theoretical_cardinality_refuted": true,
+    "uci_endgame_958_origin_confirmed": true,
+    "h0_2_oracle_defect_falsified": true,
+    "h0_3_representation_indifference_falsified": false,
+    "h1_oracle_soundness_confirmed": true,
+    "h1_decoder_penalty_confirmed": true
+  },
+  "metrics": {
+    "reachable_x_states_actual": 2423,
+    "reachable_x_states_predicted": 958,
+    "ply_distribution_actual": {
+      "ply_0": 1,
+      "ply_2": 72,
+      "ply_4": 756,
+      "ply_6": 1372,
+      "ply_8": 222
+    },
+    "uci_endgame_count": 958,
+    "game_tree_paths_actual": 152,
+    "game_tree_paths_literature_symmetry": 26830,
+    "oracle_losses": 0,
+    "oracle_zero_defect": true,
+    "decoder_penalty_gates": 18,
+    "gate_count_interleaved": 141,
+    "gate_count_dual_bitboard": 123,
+    "gate_count_reduction_pct": 12.77,
+    "dag_depth_interleaved": 8,
+    "dag_depth_dual_bitboard": 7,
+    "dag_depth_reduction_pct": 12.5,
+    "gate_count_ablation_nodc": 381
+  },
+  "gates": {
+    "oracle_zero_defect_passed": true,
+    "decoder_penalty_verified": true,
+    "gate_reduction_passed": false,
+    "depth_reduction_passed": false
+  },
+  "diagnostic_notes": [
+    "Oracle achieved strictly 0 losses across all 152 game tree paths with 100% legal moves.",
+    "Decoder penalty is exactly 18 gates (Condition E), confirming the theoretical lower bound.",
+    "For unoptimized monolithic one-hot logic, gate reduction is 12.77% (below the 20.0% threshold) because the total circuit size is 141 gates. Ply-decomposition or 4-bit encoding will be required in Rung 2/3 to reach >20% relative reduction.",
+    "State space discovery: Total non-terminal X-turn reachable states is 2423 (not 958). The canonical 958 figure represents the UCI completed endgame configurations."
+  ]
+}

@@ -1,0 +1,23 @@
+[experiment]
+id = "EXP-2026-001a"
+name = "minimax-baseline"
+seed = 42
+
+[tie_breaking]
+canonical_order = [4, 0, 2, 6, 8, 1, 3, 5, 7]
+ablation_lex_order = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+
+[representations]
+eval_interleaved = true
+eval_dual_bitboard = true
+
+[synthesis]
+basis = ["AND", "OR", "XOR", "ANDN"]
+timeout_per_cone_seconds = 300
+max_total_synthesis_seconds = 1200
+exact_dag_upper_bound = 60
+eval_dont_care_ablation = true
+eval_decoder_benchmark = true
+
+[output]
+telemetry_dir = "data/telemetry/EXP-2026-001a"

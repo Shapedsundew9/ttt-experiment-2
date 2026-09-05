@@ -1,0 +1,78 @@
+{
+  "condition_a_interleaved": {
+    "condition": "condition_a_interleaved",
+    "representation": "interleaved",
+    "dont_cares_used": true,
+    "gate_count": 141,
+    "dag_depth": 8,
+    "operator_breakdown": {
+      "AND": 48,
+      "OR": 48,
+      "XOR": 0,
+      "ANDN": 45
+    },
+    "synthesis_time_seconds": 0.0001,
+    "accuracy_pct": 100.0
+  },
+  "condition_b_dual_bitboard": {
+    "condition": "condition_b_dual_bitboard",
+    "representation": "dual_bitboard",
+    "dont_cares_used": true,
+    "gate_count": 123,
+    "dag_depth": 7,
+    "operator_breakdown": {
+      "AND": 48,
+      "OR": 48,
+      "XOR": 0,
+      "ANDN": 27
+    },
+    "synthesis_time_seconds": 0.0001,
+    "accuracy_pct": 100.0
+  },
+  "condition_c_ablation_nodc": {
+    "condition": "condition_c_ablation_nodc",
+    "representation": "dual_bitboard",
+    "dont_cares_used": false,
+    "gate_count": 381,
+    "dag_depth": 13,
+    "operator_breakdown": {
+      "AND": 190,
+      "OR": 127,
+      "ANDN": 64,
+      "XOR": 0
+    },
+    "synthesis_time_seconds": 0.0001,
+    "accuracy_pct": 100.0
+  },
+  "condition_e_decoder_benchmark": {
+    "condition": "condition_e_decoder_benchmark",
+    "representation": "interleaved",
+    "dont_cares_used": false,
+    "gate_count": 18,
+    "dag_depth": 1,
+    "operator_breakdown": {
+      "AND": 0,
+      "OR": 0,
+      "XOR": 0,
+      "ANDN": 18
+    },
+    "synthesis_time_seconds": 0.0,
+    "accuracy_pct": 100.0
+  },
+  "comparison": {
+    "n_interleaved": 141,
+    "n_dual_bitboard": 123,
+    "decoder_penalty_gates": 18,
+    "gate_count_reduction_delta_n": 0.1277,
+    "gate_count_reduction_pct": 12.77,
+    "d_interleaved": 8,
+    "d_dual_bitboard": 7,
+    "dag_depth_reduction_delta_d": 0.125,
+    "dag_depth_reduction_pct": 12.5,
+    "threshold_gate_reduction": 0.2,
+    "threshold_depth_reduction": 0.25,
+    "gate_reduction_passed": false,
+    "depth_reduction_passed": false,
+    "overall_synthesis_passed": false
+  }
+}
