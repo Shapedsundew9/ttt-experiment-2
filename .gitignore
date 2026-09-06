@@ -16,3 +16,7 @@ build/
 # Rust
 Cargo.lock
 *.pdb
+
+
+# Large files
+data/
