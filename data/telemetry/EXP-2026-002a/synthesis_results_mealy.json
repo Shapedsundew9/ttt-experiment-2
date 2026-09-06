@@ -1,0 +1,234 @@
+{
+  "experiment_id": "EXP-2026-002a",
+  "conditions": {
+    "condition_a_monolithic_dual": {
+      "stage": -1,
+      "ply": -1,
+      "representation": "dual",
+      "gate_count": 42,
+      "dag_depth": 5,
+      "operator_distribution": {
+        "AND": 21,
+        "OR": 21,
+        "XOR": 0,
+        "ANDN": 0
+      },
+      "synthesis_time_seconds": 0.0001,
+      "accuracy_pct": 100.0
+    },
+    "condition_b_monolithic_interleaved": {
+      "stage": -1,
+      "ply": -1,
+      "representation": "interleaved",
+      "gate_count": 60,
+      "dag_depth": 7,
+      "operator_distribution": {
+        "AND": 21,
+        "OR": 21,
+        "XOR": 0,
+        "ANDN": 18
+      },
+      "synthesis_time_seconds": 0.0001,
+      "accuracy_pct": 100.0
+    },
+    "condition_c_state_factored_dual": {
+      "stage_0": {
+        "stage": 0,
+        "ply": 0,
+        "representation": "dual",
+        "gate_count": 0,
+        "dag_depth": 0,
+        "operator_distribution": {
+          "AND": 0,
+          "OR": 0,
+          "XOR": 0,
+          "ANDN": 0
+        },
+        "synthesis_time_seconds": 0.0,
+        "accuracy_pct": 100.0
+      },
+      "stage_1": {
+        "stage": 1,
+        "ply": 2,
+        "representation": "dual",
+        "gate_count": 10,
+        "dag_depth": 2,
+        "operator_distribution": {
+          "AND": 5,
+          "OR": 5,
+          "XOR": 0,
+          "ANDN": 0
+        },
+        "synthesis_time_seconds": 0.0,
+        "accuracy_pct": 100.0
+      },
+      "stage_2": {
+        "stage": 2,
+        "ply": 4,
+        "representation": "dual",
+        "gate_count": 24,
+        "dag_depth": 3,
+        "operator_distribution": {
+          "AND": 12,
+          "OR": 12,
+          "XOR": 0,
+          "ANDN": 0
+        },
+        "synthesis_time_seconds": 0.0,
+        "accuracy_pct": 100.0
+      },
+      "stage_3": {
+        "stage": 3,
+        "ply": 6,
+        "representation": "dual",
+        "gate_count": 28,
+        "dag_depth": 4,
+        "operator_distribution": {
+          "AND": 14,
+          "OR": 14,
+          "XOR": 0,
+          "ANDN": 0
+        },
+        "synthesis_time_seconds": 0.0,
+        "accuracy_pct": 100.0
+      },
+      "stage_4": {
+        "stage": 4,
+        "ply": 8,
+        "representation": "dual",
+        "gate_count": 6,
+        "dag_depth": 2,
+        "operator_distribution": {
+          "AND": 0,
+          "OR": 6,
+          "XOR": 0,
+          "ANDN": 0
+        },
+        "synthesis_time_seconds": 0.0,
+        "accuracy_pct": 100.0
+      }
+    },
+    "condition_d_state_factored_interleaved": {
+      "stage_0": {
+        "stage": 0,
+        "ply": 0,
+        "representation": "interleaved",
+        "gate_count": 0,
+        "dag_depth": 0,
+        "operator_distribution": {
+          "AND": 0,
+          "OR": 0,
+          "XOR": 0,
+          "ANDN": 0
+        },
+        "synthesis_time_seconds": 0.0,
+        "accuracy_pct": 100.0
+      },
+      "stage_1": {
+        "stage": 1,
+        "ply": 2,
+        "representation": "interleaved",
+        "gate_count": 28,
+        "dag_depth": 4,
+        "operator_distribution": {
+          "AND": 0,
+          "OR": 0,
+          "XOR": 0,
+          "ANDN": 28
+        },
+        "synthesis_time_seconds": 0.0,
+        "accuracy_pct": 100.0
+      },
+      "stage_2": {
+        "stage": 2,
+        "ply": 4,
+        "representation": "interleaved",
+        "gate_count": 42,
+        "dag_depth": 5,
+        "operator_distribution": {
+          "AND": 0,
+          "OR": 0,
+          "XOR": 0,
+          "ANDN": 42
+        },
+        "synthesis_time_seconds": 0.0,
+        "accuracy_pct": 100.0
+      },
+      "stage_3": {
+        "stage": 3,
+        "ply": 6,
+        "representation": "interleaved",
+        "gate_count": 46,
+        "dag_depth": 6,
+        "operator_distribution": {
+          "AND": 0,
+          "OR": 0,
+          "XOR": 0,
+          "ANDN": 46
+        },
+        "synthesis_time_seconds": 0.0,
+        "accuracy_pct": 100.0
+      },
+      "stage_4": {
+        "stage": 4,
+        "ply": 8,
+        "representation": "interleaved",
+        "gate_count": 24,
+        "dag_depth": 4,
+        "operator_distribution": {
+          "AND": 0,
+          "OR": 0,
+          "XOR": 0,
+          "ANDN": 24
+        },
+        "synthesis_time_seconds": 0.0,
+        "accuracy_pct": 100.0
+      }
+    },
+    "condition_e_decoder_benchmark": {
+      "stage": -1,
+      "ply": -1,
+      "representation": "interleaved",
+      "gate_count": 18,
+      "dag_depth": 1,
+      "operator_distribution": {
+        "AND": 0,
+        "OR": 0,
+        "XOR": 0,
+        "ANDN": 18
+      },
+      "synthesis_time_seconds": 0.0001,
+      "accuracy_pct": 100.0
+    },
+    "condition_e_multiplexer_benchmark": {
+      "stage": -1,
+      "ply": -1,
+      "representation": "dual",
+      "gate_count": 16,
+      "dag_depth": 2,
+      "operator_distribution": {
+        "AND": 6,
+        "OR": 6,
+        "XOR": 0,
+        "ANDN": 4
+      },
+      "synthesis_time_seconds": 0.0,
+      "accuracy_pct": 100.0
+    }
+  },
+  "comparisons": {
+    "combined_mealy_dual_gates": 84,
+    "combined_mealy_dual_depth": 6,
+    "combined_mealy_interleaved_gates": 156,
+    "combined_mealy_interleaved_depth": 8,
+    "delta_n_mealy": 0.4615,
+    "delta_d_mealy": 0.25,
+    "operational_ply_delta_n": {
+      "stage_1": 0.6429,
+      "stage_2": 0.4286,
+      "stage_3": 0.3913
+    },
+    "decoder_penalty_gates": 18,
+    "multiplexer_recombination_gates": 16
+  }
+}

@@ -1,0 +1,34 @@
+[experiment]
+id = "EXP-2026-002a"
+title = "State-Factored Ply Decomposition Mealy Machine"
+seed = 42
+
+[tie_breaking]
+canonical_order = [4, 0, 2, 6, 8, 1, 3, 5, 7]
+
+[state_space]
+expected_total_states = 2423
+expected_ply_counts = [1, 72, 756, 1372, 222]
+expected_dont_cares = 259721
+
+[encoding]
+move_encoding = "dense_4bit_binary"
+output_bits = 4
+don_t_care_output_range = [9, 15]
+
+[synthesis]
+basis = ["AND", "OR", "XOR", "ANDN"]
+timeout_per_ply_seconds = 300
+timeout_total_seconds = 7200
+subcone_gate_bounds = [0, 12, 28, 32, 8]
+max_baseline_subcone = 45
+max_mux_gates = 20
+max_mux_depth = 3
+
+[thresholds]
+gate_reduction_delta_n = 0.20
+depth_reduction_delta_d = 0.25
+operational_ply_delta_n = 0.20
+
+[output]
+telemetry_dir = "data/telemetry/EXP-2026-002a"

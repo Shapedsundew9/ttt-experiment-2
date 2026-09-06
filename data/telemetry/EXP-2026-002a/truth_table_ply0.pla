@@ -1,0 +1,10 @@
+# Berkeley PLA Truth Table for EXP-2026-002a Stage 0 (dual)
+# On-set patterns: 1, Dont-cares: 262143
+.i 18
+.o 4
+.type fd
+.ilb x0 x1 x2 x3 x4 x5 x6 x7 x8 o0 o1 o2 o3 o4 o5 o6 o7 o8
+.ob m3 m2 m1 m0
+.p 1
+000000000000000000 0100
+.e

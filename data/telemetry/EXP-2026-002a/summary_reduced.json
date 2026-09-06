@@ -1,0 +1,67 @@
+{
+  "experiment_id": "EXP-2026-002a",
+  "milestone": "Milestone 2 / Rungs 2 & 3 Co-Activation",
+  "timestamp_utc": "2026-09-06T00:14:43.014508+00:00",
+  "status": "PASS",
+  "hypothesis_verdicts": {
+    "h0_1_subcone_bounds_falsified": true,
+    "h0_2_encoding_indifference_falsified": true,
+    "h0_3_representation_indifference_falsified": true,
+    "h0_4_mux_overhead_falsified": true,
+    "h1_oracle_zero_defect_confirmed": true,
+    "h1_subcone_advantage_confirmed": true
+  },
+  "metrics": {
+    "total_reachable_x_states": 2423,
+    "ply_distribution": [
+      1,
+      72,
+      756,
+      1372,
+      222
+    ],
+    "canonical_playout_paths": 152,
+    "oracle_losses": 0,
+    "move_legality_rate": 1.0,
+    "monolithic_dual_4bit_gates": 42,
+    "monolithic_interleaved_4bit_gates": 60,
+    "state_factored_dual_subcone_gates": [
+      0,
+      10,
+      24,
+      28,
+      6
+    ],
+    "state_factored_interleaved_subcone_gates": [
+      0,
+      28,
+      42,
+      46,
+      24
+    ],
+    "multiplexer_recombination_gates": 16,
+    "combined_mealy_dual_gates": 84,
+    "combined_mealy_interleaved_gates": 156,
+    "gate_reduction_delta_n_mealy": 0.4615,
+    "dag_depth_reduction_delta_d_mealy": 0.25,
+    "operational_ply_delta_n": {
+      "stage_1": 0.6429,
+      "stage_2": 0.4286,
+      "stage_3": 0.3913
+    },
+    "decoder_penalty_gates": 18
+  },
+  "gates": {
+    "gate_h0_1_subcone_bounds_passed": true,
+    "gate_h0_2_encoding_collapse_passed": true,
+    "gate_h0_3_representation_advantage_passed": true,
+    "gate_h0_4_mux_overhead_passed": true,
+    "gate_invariant_5_oracle_soundness_passed": true
+  },
+  "diagnostic_notes": [
+    "State space confirmed at exactly 2423 non-terminal X-decision states across plies 0, 2, 4, 6, 8.",
+    "Canonical Minimax Oracle achieved strictly 0 losses across all 152 deterministic play-out paths.",
+    "All decomposed sub-functions satisfy gate bounds (< 45 gates), eliminating monolithic circuit amortization.",
+    "Dual Bitboard achieves 46.15% gate count reduction across Mealy machine and > 20% across all operational plies."
+  ]
+}

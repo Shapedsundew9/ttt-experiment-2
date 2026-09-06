@@ -1,0 +1,18 @@
+{
+  "total_reachable_non_terminal_x_states": 2423,
+  "dont_care_states_count": 259721,
+  "dont_care_percentage": 99.0757,
+  "ply_distribution": {
+    "ply_0_stage_0": 1,
+    "ply_2_stage_1": 72,
+    "ply_4_stage_2": 756,
+    "ply_6_stage_3": 1372,
+    "ply_8_stage_4": 222
+  },
+  "invariants_verified": {
+    "mutual_spatial_exclusivity": true,
+    "turn_parity_popcount": true,
+    "non_terminal_precondition": true,
+    "forward_reachability_closure": true
+  }
+}

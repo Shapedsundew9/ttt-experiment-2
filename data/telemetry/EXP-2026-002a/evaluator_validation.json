@@ -1,0 +1,35 @@
+{
+  "total_states_evaluated": 2423,
+  "move_legality_rate": 1.0,
+  "game_tree_paths": 152,
+  "oracle_wins": 142,
+  "oracle_draws": 10,
+  "oracle_losses": 0,
+  "zero_defect_invariant_passed": true,
+  "condition_metrics": {
+    "monolithic_dual_4bit_gates": 42,
+    "monolithic_interleaved_4bit_gates": 60,
+    "combined_mealy_dual_gates": 84,
+    "combined_mealy_interleaved_gates": 156,
+    "combined_mealy_dual_depth": 6,
+    "combined_mealy_interleaved_depth": 8,
+    "delta_n_mealy": 0.4615,
+    "delta_d_mealy": 0.25,
+    "operational_ply_delta_n": {
+      "stage_1": 0.6429,
+      "stage_2": 0.4286,
+      "stage_3": 0.3913
+    },
+    "multiplexer_gates": 16,
+    "multiplexer_depth": 2,
+    "decoder_penalty_gates": 18
+  },
+  "falsification_gates": {
+    "gate_h0_1_subcone_bounds": true,
+    "gate_h0_2_encoding_collapse": true,
+    "gate_h0_3_representation_advantage": true,
+    "gate_h0_4_mux_overhead": true,
+    "gate_invariant_5_oracle_soundness": true
+  },
+  "milestone_verdict": "PASS"
+}
