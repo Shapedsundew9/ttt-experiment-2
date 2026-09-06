@@ -1,0 +1,180 @@
+{
+  "stage_0": [
+    {
+      "dest_reg": "R_out",
+      "op": "LOAD_IMM",
+      "src_reg_a": "4",
+      "src_reg_b_or_imm": "",
+      "comment": "Center move m=4"
+    }
+  ],
+  "stage_1": [
+    {
+      "dest_reg": "R1",
+      "op": "SHR",
+      "src_reg_a": "R_W",
+      "src_reg_b_or_imm": "9",
+      "comment": "O bitboard"
+    },
+    {
+      "dest_reg": "R2",
+      "op": "AND",
+      "src_reg_a": "R1",
+      "src_reg_b_or_imm": "0x055",
+      "comment": "Corners mask"
+    },
+    {
+      "dest_reg": "R3",
+      "op": "ANDN",
+      "src_reg_a": "0x111",
+      "src_reg_b_or_imm": "R2",
+      "comment": "Diagonal response"
+    },
+    {
+      "dest_reg": "R4",
+      "op": "SHR",
+      "src_reg_a": "R3",
+      "src_reg_b_or_imm": "1",
+      "comment": "Align coordinate"
+    },
+    {
+      "dest_reg": "R_out",
+      "op": "OR",
+      "src_reg_a": "R3",
+      "src_reg_b_or_imm": "R4",
+      "comment": "4-bit move coordinate"
+    }
+  ],
+  "stage_2": [
+    {
+      "dest_reg": "R_E",
+      "op": "ANDN",
+      "src_reg_a": "0x1FF",
+      "src_reg_b_or_imm": "R_occ",
+      "comment": "Empty mask"
+    },
+    {
+      "dest_reg": "R_O",
+      "op": "SHR",
+      "src_reg_a": "R_W",
+      "src_reg_b_or_imm": "9",
+      "comment": "O bitboard"
+    },
+    {
+      "dest_reg": "R_pair",
+      "op": "AND",
+      "src_reg_a": "R_O",
+      "src_reg_b_or_imm": "R_winmask",
+      "comment": "O threat pairs"
+    },
+    {
+      "dest_reg": "R_block",
+      "op": "AND",
+      "src_reg_a": "R_pair",
+      "src_reg_b_or_imm": "R_E",
+      "comment": "Defensive block cells"
+    },
+    {
+      "dest_reg": "R_fork",
+      "op": "XOR",
+      "src_reg_a": "R_W",
+      "src_reg_b_or_imm": "0x010",
+      "comment": "Center fork pattern"
+    },
+    {
+      "dest_reg": "R_cand",
+      "op": "OR",
+      "src_reg_a": "R_block",
+      "src_reg_b_or_imm": "R_fork",
+      "comment": "Target cells"
+    },
+    {
+      "dest_reg": "R_out",
+      "op": "SHR",
+      "src_reg_a": "R_cand",
+      "src_reg_b_or_imm": "1",
+      "comment": "Extract 4-bit coordinate"
+    }
+  ],
+  "stage_3": [
+    {
+      "dest_reg": "R_E",
+      "op": "ANDN",
+      "src_reg_a": "0x1FF",
+      "src_reg_b_or_imm": "R_occ",
+      "comment": "Empty mask"
+    },
+    {
+      "dest_reg": "R_Xpair",
+      "op": "AND",
+      "src_reg_a": "R_X",
+      "src_reg_b_or_imm": "R_winmask",
+      "comment": "X win pairs"
+    },
+    {
+      "dest_reg": "R_win",
+      "op": "AND",
+      "src_reg_a": "R_Xpair",
+      "src_reg_b_or_imm": "R_E",
+      "comment": "Immediate win move"
+    },
+    {
+      "dest_reg": "R_Opair",
+      "op": "AND",
+      "src_reg_a": "R_O",
+      "src_reg_b_or_imm": "R_winmask",
+      "comment": "O block pairs"
+    },
+    {
+      "dest_reg": "R_block",
+      "op": "AND",
+      "src_reg_a": "R_Opair",
+      "src_reg_b_or_imm": "R_E",
+      "comment": "Immediate block move"
+    },
+    {
+      "dest_reg": "R_cand",
+      "op": "OR",
+      "src_reg_a": "R_win",
+      "src_reg_b_or_imm": "R_block",
+      "comment": "Select win or block"
+    },
+    {
+      "dest_reg": "R_out",
+      "op": "SHR",
+      "src_reg_a": "R_cand",
+      "src_reg_b_or_imm": "1",
+      "comment": "Extract 4-bit coordinate"
+    }
+  ],
+  "stage_4": [
+    {
+      "dest_reg": "R_E",
+      "op": "ANDN",
+      "src_reg_a": "0x1FF",
+      "src_reg_b_or_imm": "R_occ",
+      "comment": "Unique open cell"
+    },
+    {
+      "dest_reg": "R_m0",
+      "op": "AND",
+      "src_reg_a": "R_E",
+      "src_reg_b_or_imm": "0x0AA",
+      "comment": "m0 bit test"
+    },
+    {
+      "dest_reg": "R_m1",
+      "op": "AND",
+      "src_reg_a": "R_E",
+      "src_reg_b_or_imm": "0x0CC",
+      "comment": "m1 bit test"
+    },
+    {
+      "dest_reg": "R_out",
+      "op": "OR",
+      "src_reg_a": "R_m0",
+      "src_reg_b_or_imm": "R_m1",
+      "comment": "Compose coordinate"
+    }
+  ]
+}

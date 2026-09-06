@@ -1,0 +1,55 @@
+{
+  "experiment_id": "EXP-2026-003a",
+  "milestone": "Milestone 3 / Rung 4: SWAR Bitboard & 64-Bit ALU Arithmetic Synthesis",
+  "timestamp_utc": "2026-09-06T00:25:02.013657+00:00",
+  "status": "PASS",
+  "hypothesis_verdicts": {
+    "h0_1_program_minimality_falsified": true,
+    "h0_2_stage_ceilings_falsified": true,
+    "h0_3_win_kernel_efficiency_falsified": true,
+    "h0_4_mux_overhead_falsified": true,
+    "h1_program_minimality_confirmed": true,
+    "h1_oracle_zero_defect_confirmed": true
+  },
+  "metrics": {
+    "total_reachable_x_states": 2423,
+    "ply_distribution": [
+      1,
+      72,
+      756,
+      1372,
+      222
+    ],
+    "canonical_playout_paths": 152,
+    "oracle_losses": 0,
+    "move_legality_rate": 1.0,
+    "total_static_alu_instructions": 23,
+    "max_single_stage_alu_instructions": 7,
+    "stage_instruction_breakdown": {
+      "f0": 0,
+      "f1": 5,
+      "f2": 7,
+      "f3": 7,
+      "f4": 4
+    },
+    "swar_win_kernel_instructions": 4,
+    "swar_threat_kernel_instructions": 5,
+    "stage_dispatch_mux_instructions": 0,
+    "max_dynamic_step_instructions": 9,
+    "monolithic_alu_instructions": 38,
+    "ablation_no_swar_instructions": 44
+  },
+  "gates": {
+    "gate_h0_1_program_minimality_passed": true,
+    "gate_h0_2_stage_ceilings_passed": true,
+    "gate_h0_3_win_kernel_efficiency_passed": true,
+    "gate_h0_4_zero_mux_overhead_passed": true,
+    "gate_invariant_5_oracle_soundness_passed": true
+  },
+  "diagnostic_notes": [
+    "Synthesized complete 64-bit ALU policy in 23 instructions (<= 25 target), beating the 42-gate monolithic Boolean baseline.",
+    "SWAR parallel win kernel evaluates all 8 lines simultaneously in exactly 4 ALU instructions.",
+    "Autonomous stage dispatch t = popcount(X | O)/2 eliminated combinational multiplexer overhead completely (N_mux = 0).",
+    "Minimax Oracle verified with zero defect (0 losses across all 152 canonical paths, 100.0% legal moves on 2423 states)."
+  ]
+}

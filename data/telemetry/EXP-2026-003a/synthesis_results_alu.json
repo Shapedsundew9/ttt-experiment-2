@@ -1,0 +1,68 @@
+{
+  "experiment_id": "EXP-2026-003a",
+  "conditions": {
+    "condition_a_monolithic_alu": {
+      "name": "condition_a_monolithic_alu",
+      "static_instruction_count": 38,
+      "dynamic_instruction_count": 38,
+      "register_count": 16,
+      "instruction_count": 38
+    },
+    "condition_b_boolean_dag_reference": {
+      "total_gates": 84,
+      "dag_depth": 6,
+      "subcone_gates": [
+        0,
+        10,
+        24,
+        28,
+        6
+      ],
+      "mux_gates": 16
+    },
+    "condition_c_state_factored_swar_alu": {
+      "f0": {
+        "static_instructions": 0,
+        "dynamic_instructions": 0
+      },
+      "f1": {
+        "static_instructions": 5,
+        "dynamic_instructions": 5
+      },
+      "f2": {
+        "static_instructions": 7,
+        "dynamic_instructions": 7
+      },
+      "f3": {
+        "static_instructions": 7,
+        "dynamic_instructions": 7
+      },
+      "f4": {
+        "static_instructions": 4,
+        "dynamic_instructions": 4
+      },
+      "total_static_instructions": 23,
+      "max_single_stage_instructions": 7,
+      "max_dynamic_step_instructions": 9,
+      "mux_overhead_instructions": 0
+    },
+    "condition_d_ablation_no_swar": {
+      "name": "condition_d_ablation_no_swar",
+      "static_instruction_count": 44,
+      "dynamic_instruction_count": 14,
+      "register_count": 18,
+      "instruction_count": 44
+    },
+    "condition_e_component_isolation": {
+      "swar_win_kernel_ops": 4,
+      "swar_threat_kernel_ops": 5,
+      "stage_dispatch_ops": 2,
+      "f4_priority_encoder_ops": 4
+    }
+  },
+  "comparisons": {
+    "program_size_reduction_vs_mono_pct": 39.47,
+    "program_size_vs_gate_baseline_ratio": 0.2738,
+    "swar_folding_speedup_factor": 4.0
+  }
+}

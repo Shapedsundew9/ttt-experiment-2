@@ -1,0 +1,15 @@
+{
+  "experiment_id": "EXP-2026-003a",
+  "swar_engine": {
+    "byte_lanes_count": 8,
+    "bits_per_lane": 3,
+    "patterns_tested": 512,
+    "projection_correctness_pct": 100.0,
+    "win_kernel_alu_instructions": 4,
+    "win_kernel_falsification_passed": true,
+    "threat_kernel_alu_instructions": 5,
+    "threat_kernel_falsification_passed": true,
+    "stage_dispatch_mux_instructions": 0,
+    "stage_dispatch_falsification_passed": true
+  }
+}

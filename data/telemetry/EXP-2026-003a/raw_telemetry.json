@@ -1,0 +1,40 @@
+{
+  "experiment_id": "EXP-2026-003a",
+  "execution_wall_time_seconds": 0.049,
+  "timestamp_utc": "2026-09-06T00:25:01Z",
+  "eval_report": {
+    "total_states_evaluated": 2423,
+    "move_legality_rate": 1.0,
+    "canonical_game_tree_paths": 152,
+    "oracle_wins": 142,
+    "oracle_draws": 10,
+    "oracle_losses": 0,
+    "zero_defect_passed": true,
+    "total_static_instructions": 23,
+    "stage_instruction_counts": {
+      "f0": 0,
+      "f1": 5,
+      "f2": 7,
+      "f3": 7,
+      "f4": 4
+    },
+    "max_single_stage_instructions": 7,
+    "win_kernel_instructions": 4,
+    "threat_kernel_instructions": 5,
+    "mux_overhead_instructions": 0,
+    "max_dynamic_step_instructions": 9,
+    "falsification_gates": {
+      "gate_h0_1_program_minimality": true,
+      "gate_h0_2_stage_ceilings": true,
+      "gate_h0_3_win_kernel_efficiency": true,
+      "gate_h0_4_zero_mux_overhead": true,
+      "gate_invariant_5_oracle_soundness": true
+    },
+    "milestone_verdict": "PASS"
+  },
+  "synthesis_summary": {
+    "program_size_reduction_vs_mono_pct": 39.47,
+    "program_size_vs_gate_baseline_ratio": 0.2738,
+    "swar_folding_speedup_factor": 4.0
+  }
+}

@@ -1,0 +1,34 @@
+[experiment]
+id = "EXP-2026-003a"
+title = "SWAR Bitboard and 64-Bit ALU Arithmetic Synthesis"
+seed = 42
+
+[tie_breaking]
+canonical_order = [4, 0, 2, 6, 8, 1, 3, 5, 7]
+
+[state_space]
+expected_total_states = 2423
+expected_ply_counts = [1, 72, 756, 1372, 222]
+expected_dont_cares = 259721
+
+[substrate]
+isa_basis = ["AND", "OR", "XOR", "ANDN", "SHL", "SHR", "NOT"]
+register_width = 64
+move_encoding = "dense_4bit_binary"
+output_bits = 4
+
+[complexity_budgets]
+max_total_instructions = 25
+max_stage_instructions = [0, 6, 8, 8, 6]
+max_single_stage_ceiling = 8
+max_win_kernel_instructions = 4
+max_threat_kernel_instructions = 6
+expected_mux_overhead = 0
+max_dynamic_step_instructions = 10
+
+[timeouts]
+timeout_per_stage_seconds = 300
+timeout_total_seconds = 7200
+
+[output]
+telemetry_dir = "data/telemetry/EXP-2026-003a"

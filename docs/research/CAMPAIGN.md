@@ -12,10 +12,10 @@
 | Stage                      | Active Agent                      | Active Artifact Reference                     | Status      |
 |----------------------------|-----------------------------------|-----------------------------------------------|-------------|
 | Strategic Direction        | Sci: Research Strategist          | `docs/research/STRAT-2026-001.md`             | COMPLETED   |
-| Hypothesis Formulation     | Sci: Hypothesis Formulator        | `docs/research/hypotheses/HYP-2026-003.md`    | IN PROGRESS |
-| Protocol Design            | Sci: Experiment Protocol Designer | `docs/research/protocols/EXP-2026-003a.md`    | PENDING     |
-| Protocol & Budget Sign-Off | Operator / User                   | **Gate H/P**: Sign-off on budget & metrics    | PENDING     |
-| Execution & Telemetry      | Code Track / Operator             | `docs/research/runs/RUN-EXP-2026-003a-01.md`  | PENDING     |
+| Hypothesis Formulation     | Sci: Hypothesis Formulator        | `docs/research/hypotheses/HYP-2026-003.md`    | COMPLETED   |
+| Protocol Design            | Sci: Experiment Protocol Designer | `docs/research/protocols/EXP-2026-003a.md`    | COMPLETED   |
+| Protocol & Budget Sign-Off | Operator / User                   | **Gate H/P**: Sign-off on budget & metrics    | COMPLETED   |
+| Execution & Telemetry      | Code Track / Operator             | `docs/research/runs/RUN-EXP-2026-003a-01.md`  | IN PROGRESS |
 | Diagnostic Analysis        | Sci: Empirical Diagnostician      | `docs/research/diagnostics/DIAG-2026-003a.md` | PENDING     |
 | Curriculum Iteration       | Sci: Curriculum Director          | `docs/research/ITER-2026-003a-01.md`          | PENDING     |
 | Iteration Approval         | Operator / User                   | **Gate I**: Sign-off on next action           | PENDING     |
