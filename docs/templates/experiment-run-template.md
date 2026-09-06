@@ -12,7 +12,7 @@ Save completed run logs to `docs/research/runs/RUN-EXP-YYYY-NNNa-[run-id].md`.
 - **Run Identifier**: RUN-EXP-YYYY-NNNa-[run-id]
 - **Protocol Reference**: `docs/research/protocols/EXP-YYYY-NNNa.md`
 - **Hypothesis Reference**: `docs/research/hypotheses/HYP-YYYY-NNN.md`
-- **Experiment Package**: `python/experiments/EXP-YYYY-NNNa-[slug]/`
+- **Experiment Package**: `python/experiments/exp_YYYY_NNNa_[slug]/` or Rust module/crate `exp_YYYY_NNNa_[slug]`
 - **Lead Execution Agent**: Code: SWE (Execution Worker) | Manual Operator CLI
 - **Date & Duration**: YYYY-MM-DD HH:MM:SS UTC (Duration: [X]h [Y]m [Z]s)
 
@@ -95,12 +95,20 @@ All emitted telemetry files and their cryptographic checksums:
 ---
 
 ## 7. Telemetry Data Reduction Summary
+- **Reduction Script**: `python/scripts/reduce_telemetry.py`
+- **Status Flag**: `[PASS / PARTIAL_SUPPORT / REFUTED]`
+- **Reduction Timestamp**: `[YYYY-MM-DD HH:MM:SS UTC]`
 
-Summary computed programmatically by reduction tool before dispatch to Empirical Diagnostician:
+### Verified Observables & Falsification Gates
 
-- Data Reduction Script: `python/scripts/reduce_telemetry.py`
-- Pre-checks: Missing values = 0, NaNs = 0, Corrupted runs = 0
-- Reduced Summary Path: `data/telemetry/EXP-014a/summary_reduced.json`
+| Metric / Observable | Pre-Registered Target | Actual Observed | Status |
+| :--- | :--- | :--- | :--- |
+| [Observable A] | [Target threshold] | [Observed value] | [PASS / FAIL] |
+| [Observable B] | [Target threshold] | [Observed value] | [PASS / FAIL] |
+
+### Diagnostic Observations for Evaluator
+
+- [Diagnostic summary notes on invariants, failure modes, or boundary behaviors]
 
 ---
 

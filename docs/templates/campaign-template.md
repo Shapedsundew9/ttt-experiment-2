@@ -56,10 +56,17 @@ Audit log of every discovery cycle executed within this campaign:
 
 ---
 
-## 4. Resource & Compute Accounting
+## 4. Resource, Token & Financial Accounting
 
+### Compute Accounting
 - **Total Allocated Campaign Budget**: [e.g., 500 Compute-Hours]
 - **Compute Consumed to Date**: [e.g., 142 Compute-Hours]
-- **Remaining Budget**: [e.g., 358 Compute-Hours]
-- **Max Iteration Limit per Milestone**: 5 iterations (Current: Cycle 2 of 5)
-```
+- **Remaining Compute Budget**: [e.g., 358 Compute-Hours]
+- **Max Iteration Limit per Milestone**: 5 iterations (Current: Cycle 1 of 5)
+
+### Agent Token & Financial Guardrails
+- **Total Allocated Token Budget**: [e.g., 1,000,000 Tokens]
+- **Estimated Tokens Consumed to Date**: [e.g., 52,000 Tokens]
+- **Remaining Token Budget**: [e.g., 948,000 Tokens]
+- **Subagent Dispatches Allowed / Denied**: [e.g., 3 Allowed / 0 Denied by Controller]
+- **Campaign Lifecycle Status**: [ACTIVE / TERMINATED_SUCCESS]

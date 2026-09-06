@@ -44,16 +44,27 @@ Audit log of every discovery cycle executed within this campaign:
 
 | Cycle | Hypothesis | Protocol | Package Path | Run ID | Git Tag | Diagnostic Verdict | Action Selected | User Gate Approval |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | `HYP-2026-001` | `EXP-2026-001a` | `python/experiments/EXP-2026-001a-minimax-baseline/` | `RUN-EXP-2026-001a-01` | `exp/EXP-2026-001a-01` | PARTIAL_SUPPORT (Zero Loss Verified; 18-Gate Decoder Confirmed; 2423 States Discovered; Monolithic Gate Reduction 12.77%) | MUTATE (State-Factored Ply Decomposition Mealy Machine + 4-Bit Dense Binary Coordinates) | Approved (Gate I on 2026-09-05) |
-| 2 | `HYP-2026-002` | `EXP-2026-002a` | `python/experiments/EXP-2026-002a-ply-mealy/` | `RUN-EXP-2026-002a-01` | `exp/EXP-2026-002a-01` | SUPPORTED (All 5 Gates Passed; Delta N = 46.15%; Delta D = 25.0%; Subcones < 30 Gates; Monolithic 42 Gates; 0 Losses) | EXPLOIT (Advance to Milestone 3 / Rung 4: SWAR Bitboard & 64-Bit ALU Arithmetic Synthesis) | Approved (Gate I Standing Directive) |
-| 3 | `HYP-2026-003` | `EXP-2026-003a` | `python/experiments/EXP-2026-003a-swar-alu/` | `RUN-EXP-2026-003a-01` | `exp/EXP-2026-003a-01` | SUPPORTED (All 4 Gates Passed; 23 Static ALU Ops <= 25; SWAR Win Kernel 4 Ops; N_mux = 0; Max Step = 9; 0 Losses) | COMPLETE (Campaign Objectives Fulfilled; All Rungs 1-4 Formally Certified) | Approved (Gate I Standing Directive) |
+| 1 | `HYP-2026-001` | `EXP-2026-001a` | `python/experiments/exp_2026_001a_minimax_baseline/` | `RUN-EXP-2026-001a-01` | `exp/EXP-2026-001a-01` | PARTIAL_SUPPORT (Zero Loss Verified; 18-Gate Decoder Confirmed; 2423 States Discovered; Monolithic Gate Reduction 12.77%) | MUTATE (State-Factored Ply Decomposition Mealy Machine + 4-Bit Dense Binary Coordinates) | Approved (Gate I on 2026-09-05) |
+| 2 | `HYP-2026-002` | `EXP-2026-002a` | `python/experiments/exp_2026_002a_ply_mealy/` | `RUN-EXP-2026-002a-01` | `exp/EXP-2026-002a-01` | SUPPORTED (All 5 Gates Passed; Delta N = 46.15%; Delta D = 25.0%; Subcones < 30 Gates; Monolithic 42 Gates; 0 Losses) | EXPLOIT (Advance to Milestone 3 / Rung 4: SWAR Bitboard & 64-Bit ALU Arithmetic Synthesis) | Approved (Gate I Standing Directive) |
+| 3 | `HYP-2026-003` | `EXP-2026-003a` | `python/experiments/exp_2026_003a_swar_alu/` | `RUN-EXP-2026-003a-01` | `exp/EXP-2026-003a-01` | SUPPORTED (All 4 Gates Passed; 23 Static ALU Ops <= 25; SWAR Win Kernel 4 Ops; N_mux = 0; Max Step = 9; 0 Losses) | COMPLETE (Campaign Objectives Fulfilled; All Rungs 1-4 Formally Certified) | Approved (Gate I Standing Directive) |
 
 ---
 
-## 4. Resource & Compute Accounting
+## 4. Resource, Token & Financial Accounting
+
+### Compute Accounting
 
 - **Total Allocated Campaign Budget**: 100 Compute-Hours / 1,000,000 evaluations
 - **Compute Consumed to Date**: 0.003 Compute-Hours
-- **Remaining Budget**: 99.997 Compute-Hours
-- **Max Iteration Limit per Milestone**: 5 iterations (Current: Cycle 3 of 5)
+- **Remaining Compute Budget**: 99.997 Compute-Hours
+- **Max Iteration Limit per Milestone**: 5 iterations (Completed: Cycle 3 of 5)
+
+### Agent Token & Financial Guardrails
+
+- **Baseline Profiling Evidence**: [`PROFILE-BASELINE.md`](runs/PROFILE-BASELINE.md)
+- **Total Allocated Token Budget**: 500,000 Tokens
+- **Estimated Tokens Consumed across Campaign**: ~52,226 Tokens
+- **Remaining Token Budget**: ~447,774 Tokens
+- **Subagent Dispatches Allowed / Denied**: 3 Allowed (`swe`) / 0 Denied
+- **Financial Controller Policy**: Active (`.agents/hooks.json`, `.github/hooks/hooks.json`)
 - **Campaign Lifecycle Status**: `TERMINATED_SUCCESS (Objectives Fulfilled)`

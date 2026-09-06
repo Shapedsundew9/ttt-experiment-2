@@ -119,13 +119,13 @@ flowchart TB
 
     subgraph SCI_TRACK["Scientific Research Track (Sci:*)"]
         SCI_O["🎯 Sci: Orchestrator<br/><i>(Research Loop Lead)</i>"]:::primary
-        SCI_SUBS["👥 Sci Subagents<br/><i>(Strategist, Hypothesis, Protocol, Diagnostician, Curriculum)</i>"]:::secondary
+        SCI_SKILLS["🧠 In-Context Skills<br/><i>(sci-formulation, sci-evaluation)</i>"]:::secondary
         SCI_SWE["💻 Sci Execution Worker<br/><i>(Code: SWE / Script Runner)</i>"]:::secondary
         SCI_ARTS["🔬 Research Artifacts & Telemetry<br/><i>(Protocols, Manifests, data/telemetry/)</i>"]:::tertiary
-        SCI_O <-->|"1-level theory dispatch"| SCI_SUBS
+        SCI_O <-->|"In-context execution"| SCI_SKILLS
         SCI_O <-->|"1-level execution dispatch"| SCI_SWE
-        SCI_SWE -->|"Runs sweeps & reduces"| SCI_ARTS
-        SCI_SUBS -->|"Generates & analyzes"| SCI_ARTS
+        SCI_SWE -->|"Runs sweeps & updates manifest"| SCI_ARTS
+        SCI_SKILLS -->|"Generates & analyzes"| SCI_ARTS
     end
 
     USER -->|"1. Directs Intent & Approves Tiers"| SPEC_O
@@ -392,7 +392,7 @@ The **Scientific Track** coordinates empirical discovery campaigns. Managed by [
 - **Theoretical & Measurement Purity**: Separates mathematical modeling, empirical experiment protocol design, and dynamical diagnostics from code implementation.
 - **Direct Execution Dispatch (1-Level Architecture)**: To eliminate illegal nested-subagent calls (`Sci` $\rightarrow$ `RUG` $\rightarrow$ `SWE`) and avoid burdensome enterprise release ceremonies for exploratory script adjustments, `Sci: Orchestrator` directly dispatches an execution worker (`Code: SWE` / `swe` or local runner) within its own 1-level hierarchy.
 - **Two-Tier Loop Architecture (Inner vs. Outer Loop)**: Decouples autonomous parameter exploration from macro-level scientific evolution. The inner loop searches parameter regimes intelligently, while the outer loop drives algorithmic mutations, structural ablations, and complexity progression.
-- **Language-Scoped Experiment Isolation**: Every experiment is provisioned as an independent, immutable package under the respective language tree (e.g. `python/experiments/EXP-YYYY-NNNa-[slug]/`), strictly preserving historical reproducibility.
+- **Language-Scoped Experiment Isolation**: Every experiment is provisioned as an independent, immutable package under the respective language tree using lowercase snake_case (e.g. `python/experiments/exp_YYYY_NNNa_[slug]/` or Rust module/crate `exp_YYYY_NNNa_[slug]`), strictly preserving historical reproducibility. Lowercase snake_case guarantees compatibility across both Python packages and Rust modules without identifier syntax errors.
 - **Persistent Campaign Continuity & Provenance**: Tracks theoretical capability progression on a complexity ladder across sessions in `docs/research/CAMPAIGN.md`, with every run pinned by cryptographic checksums and Git tags.
 - **Programmatic Telemetry Reduction**: Raw multi-gigabyte telemetry is reduced via scripts to statistical summaries and phase plots before ingestion by the Empirical Diagnostician.
 - **Human-Gated Discovery Loop**: All macro-level iteration directives (Mutate, Advance, Ablate, Pivot) pass through **Gate I** for operator approval as Principal Investigator before new hypotheses or protocols are dispatched.
@@ -435,45 +435,46 @@ flowchart TD
     classDef tertiary fill:#1d2c44,stroke:#61afef,stroke-width:1.5px,color:#e4f0fc;
     classDef note fill:#2e271a,stroke:#e5c07b,stroke-width:1.5px,color:#fdf4db;
 
-    subgraph FORMULATION["1. Scientific Formulation (In-Domain Sci Subagents)"]
-        STRAT["🔭 Sci: Research Strategist<br/><i>(Paradigm guardian & roadmap)</i>"]:::primary
-        HYP["📐 Sci: Hypothesis Formulator<br/><i>(Mathematical hypotheses & invariants)</i>"]:::secondary
-        PROTO["📋 Sci: Experiment Protocol Designer<br/><i>(Pre-registered metrics & Eng Spec)</i>"]:::secondary
+    subgraph FORMULATION["1. Scientific Formulation (In-Context Skill: sci-formulation)"]
+        STRAT["🔭 Strategic Milestone Directive<br/><i>(docs/research/STRAT-*.md)</i>"]:::secondary
+        HYP["📐 Formal Mathematical Hypothesis<br/><i>(docs/research/hypotheses/HYP-*.md)</i>"]:::secondary
+        PROTO["📋 Experiment Protocol & Package Spec<br/><i>(docs/research/protocols/EXP-*.md)</i>"]:::primary
+        STRAT --> HYP --> PROTO
     end
 
     subgraph PROTOCOL_GATE["2. Protocol & Budget Decision Gate"]
-        GATE_HP["🔒 Gate H/P: Protocol & Budget Sign-Off<br/><i>(Operator verifies compute & sweep limits)</i>"]:::note
+        GATE_HP["🔒 Gate H/P: Protocol & Budget Sign-Off<br/><i>(Operator verifies compute, sweep limits & token budget)</i>"]:::note
     end
 
     subgraph EXECUTION["3. Execution & Provenance Capture (Direct 1-Level Dispatch)"]
         EXEC_W["💻 Code: SWE / Runner<br/><i>(Direct execution worker for sweeps)</i>"]:::secondary
-        EXP_PKG["📦 Isolated Experiment Package<br/><i>(python/experiments/EXP-*/)</i>"]:::tertiary
+        EXP_PKG["📦 Isolated Experiment Package<br/><i>(python/experiments/exp_*/ or Rust)</i>"]:::tertiary
         RUN_MANIFEST["📋 Run Manifest & Telemetry<br/><i>(RUN-EXP-*.md & data/telemetry/)</i>"]:::tertiary
         REDUCE["⚡ Telemetry Data Reduction<br/><i>(scripts/reduce_telemetry.py)</i>"]:::secondary
-        SUMMARY["📊 Reduced Summary Metrics<br/><i>(summary_reduced.json & plots)</i>"]:::tertiary
         EXEC_W -->|"Provisions & runs"| EXP_PKG
-        EXP_PKG -->|"Emits Raw Logs & Manifest"| RUN_MANIFEST
+        EXP_PKG -->|"Emits Raw Logs"| RUN_MANIFEST
+        RUN_MANIFEST -->|"Updates Manifest Table"| REDUCE
+        REDUCE -->|"Appends Reduced Section"| RUN_MANIFEST
     end
 
-    subgraph EVALUATION["4. Empirical Diagnostics & Discovery Loop"]
-        DIAG["🔬 Sci: Empirical Diagnostician<br/><i>(Phase portraits, attractors, failure modes)</i>"]:::secondary
-        CURR["🧭 Sci: Curriculum Director<br/><i>(Mutate, Advance, or Ablate directive)</i>"]:::primary
+    subgraph EVALUATION["4. Empirical Diagnostics & Discovery Loop (In-Context Skill: sci-evaluation)"]
+        DIAG["🔬 Diagnostic Evaluation Report<br/><i>(docs/research/diagnostics/DIAG-*.md)</i>"]:::primary
+        CURR["🧭 Curriculum Iteration Directive<br/><i>(docs/research/ITER-*.md)</i>"]:::secondary
+        DIAG --> CURR
+    end
+
+    subgraph ITER_GATE["5. Iteration Decision Gate"]
         GATE_I["🔒 Gate I: Iteration Decision Gate<br/><i>(Operator signs off on next move)</i>"]:::note
     end
 
-    STRAT -->|"Strategic Milestone Directive"| HYP
-    HYP -->|"Formal Hypothesis Document"| PROTO
-    PROTO -->|"Protocol & Implementation Spec"| GATE_HP
+    PROTO --> GATE_HP
     GATE_HP -->|"Approved"| EXEC_W
-    RUN_MANIFEST -->|"Input to Script"| REDUCE
-    REDUCE -->|"Produces Compact Metrics"| SUMMARY
-    SUMMARY & RUN_MANIFEST -->|"Ingested for Analysis"| DIAG
-    DIAG -->|"Diagnostic Evaluation Report"| CURR
-    CURR -->|"Iteration Directive"| GATE_I
+    RUN_MANIFEST -->|"Ingested for Analysis"| DIAG
+    CURR --> GATE_I
 
-    GATE_I -->|"Mutate Approved"| HYP
-    GATE_I -->|"Advance / Ablate Approved"| PROTO
-    GATE_I -.->|"Stall Detected: Pivot Approved"| STRAT
+    GATE_I -->|"Mutate Approved"| FORMULATION
+    GATE_I -->|"Advance / Ablate Approved"| FORMULATION
+    GATE_I -.->|"Stall Detected: Pivot Approved"| FORMULATION
     GATE_I -.->|"Milestone Verified"| MILESTONE_DONE["🏁 Research Milestone Complete<br/><i>(Validated Research Dossier & Pinned Tags)</i>"]:::note
 ```
 
@@ -492,10 +493,10 @@ To maintain clarity and prevent code rot, the codebase strictly separates shared
 1. **The Shared Lab Apparatus (`python/src/tools/` or Rust `src/`)**:
    - Reusable simulation engines, dynamical operators, linear algebra utilities, telemetry loggers, reduction tools, and phase-space projection calculators.
    - Tested under [`python/tests/`](python/tests/) and maintained with strict backward-compatibility so earlier experiments never break when shared tools improve.
-2. **Isolated Experiment Packages (`python/experiments/EXP-YYYY-NNNa-[slug]/`)**:
+2. **Isolated Experiment Packages (`python/experiments/exp_YYYY_NNNa_[slug]/` or Rust modules)**:
    - Every experiment is provisioned as an independent package under its language directory containing its specific algorithmic implementation (`dynamics.py`), inner-loop sweep configurations (`config.toml`), runner entrypoint (`run.py`), and localized test/verification routines.
    - When an experiment is completed, this directory becomes **strictly read-only**.
-   - If cycle 2 requires an algorithmic mutation, it creates a new package (`python/experiments/EXP-YYYY-NNNb-[slug]/`) that can import from `tools` or subclass prior experiments, clearly declaring its parent lineage in its metadata.
+   - If cycle 2 requires an algorithmic mutation, it creates a new package (`python/experiments/exp_YYYY_NNNb_[slug]/`) that can import from `tools` or subclass prior experiments, clearly declaring its parent lineage in its metadata.
 
 #### Two-Tier Loop Architecture: Inner vs. Outer Loop
 
@@ -522,7 +523,7 @@ Rather than fragmenting the repository into dozens of divergent Git branches, th
 
 The `Sci: Experiment Protocol Designer` includes an **Experiment Implementation Specification** in every protocol document before presenting it at **Gate H/P**:
 
-1. **Target Experiment Package**: Exact package path under the language tree (e.g. `python/experiments/EXP-YYYY-NNNa-[slug]/`).
+1. **Target Experiment Package**: Exact package path under the language tree using lowercase snake_case (e.g. `python/experiments/exp_YYYY_NNNa_[slug]/` or Rust module/crate `exp_YYYY_NNNa_[slug]`).
 2. **Parent Lineage**: Explicit parent protocol reference (if mutating or ablating a prior experiment).
 3. **CLI Entry Points**: Exact executable commands, script targets, and argument signatures.
 4. **Parameter Search Space & Strategy**: Explicit parameter boundaries, seed sets, and guidance for adaptive discovery within the space.
@@ -532,17 +533,16 @@ The `Sci: Experiment Protocol Designer` includes an **Experiment Implementation 
 
 Once signed off at **Gate H/P**, `Sci: Orchestrator` directly dispatches an execution worker (`Code: SWE` or runner script) to provision the experiment package, execute the adaptive sweep, execute telemetry reduction (`python/scripts/reduce_telemetry.py`), commit the clean code, create the Git tag, and log the `RUN-EXP-*.md` manifest.
 
-### `Sci:*` Subagents Catalog
+### `Sci:*` Skills & Subagents Catalog
 
-| Agent Name | Lifecycle Stage | Role | Primary Input | Primary Output |
+| Component | Nature / Type | Lifecycle Stage | Role | Primary Artifact Deliverable |
 | :--- | :--- | :--- | :--- | :--- |
-| **`Sci: Orchestrator`** | Pipeline Controller | State machine manager | Research goal, directives | Dispatches, campaign state tracking, Git tag governance |
-| **`Sci: Research Strategist`** | Strategic Direction | Paradigm guardian | Campaign history, roadmap | Strategic Milestone Directives, pivot advice |
-| **`Sci: Hypothesis Formulator`** | Theoretical Modeling | Mathematical formalizer | Strategic Directives | Formal Hypothesis Documents (equations, invariants) |
-| **`Sci: Experiment Protocol Designer`** | Empirical Design | Measurement architect | Formal Hypotheses | Structured Experiment Protocols & Package Specs |
-| **`Code: SWE`** (or `swe`) | Execution & Exploration | Experiment runner | Experiment Implementation Spec | Isolated package (`python/experiments/`), intelligent sweep, reduced telemetry, Run Manifest & Git tag |
-| **`Sci: Empirical Diagnostician`** | Telemetry Analysis | Experimental analyst | Raw telemetry & state snapshots | Diagnostic Evaluation Reports, failure taxonomy |
-| **`Sci: Curriculum Director`** | Discovery Loop Controller | Adaptive search controller | Diagnostic Reports | Iteration Directives (Mutate, Advance, Ablate) |
+| **`Sci: Orchestrator`** | **Lead Orchestrator** | Full Lifecycle | Research state machine lead | Stage dispatches, `CAMPAIGN.md` persistence, Git tag governance |
+| **`sci-formulation`** | **In-Context Skill** | Formulation (Stage 1) | Strategist, Hypothesis & Protocol | `docs/research/STRAT-*.md`, `HYP-*.md`, `EXP-*.md` (Gate H/P) |
+| **`Code: SWE`** (or `swe`) | **Isolated Subagent** | Execution (Stage 2) | Experiment runner & sweeps | Isolated package (`python/experiments/`), raw logs, `RUN-EXP-*.md` manifest |
+| **`Financial Controller`** | **Deterministic Hook** | Pre-Tool Guardrail | Token budget & routing guard | `.agents/hooks.json` & `.github/hooks/hooks.json` rulings in `.agents/data/` |
+| **`sci-evaluation`** | **In-Context Skill** | Evaluation (Stage 3) | Diagnostician & Curriculum | `docs/research/diagnostics/DIAG-*.md`, `ITER-*.md` (Gate I) |
+| *Standalone Specialists* | *Optional Subagents* | Fallback / Ext. Audits | Modular theory & diagnostic roles | `sci-hypothesis-formulator`, `sci-experiment-protocol`, `sci-empirical-diagnostician` |
 
 ---
 

@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "hooks": {
+    "financial-controller": {
+      "preToolUse": [
+        {
+          "matcher": "runSubagent|agent",
+          "command": "python3 ./.agents/scripts/financial_controller.py"
+        }
+      ]
+    }
+  }
+}

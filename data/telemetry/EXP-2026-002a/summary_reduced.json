@@ -1,7 +1,7 @@
 {
   "experiment_id": "EXP-2026-002a",
   "milestone": "Milestone 2 / Rungs 2 & 3 Co-Activation",
-  "timestamp_utc": "2026-09-06T00:14:43.014508+00:00",
+  "timestamp_utc": "2026-09-06T17:39:57.813171+00:00",
   "status": "PASS",
   "hypothesis_verdicts": {
     "h0_1_subcone_bounds_falsified": true,

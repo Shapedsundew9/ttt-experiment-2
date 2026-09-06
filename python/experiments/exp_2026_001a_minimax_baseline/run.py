@@ -143,7 +143,12 @@ def run_experiment(config: ExperimentConfig, stage: str = "all") -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Run EXP-2026-001a Experiment Pipeline")
-    parser.add_argument("--config", type=str, default="python/experiments/EXP-2026-001a-minimax-baseline/config.toml")
+    parser.add_argument(
+        "--config",
+        type=str,
+        default=str(Path(__file__).parent / "config.toml"),
+        help="Path to config.toml",
+    )
     parser.add_argument("--output-dir", type=str, default="data/telemetry/EXP-2026-001a")
     parser.add_argument("--stage", type=str, default="all", choices=["all", "enumerate", "oracle", "emit", "synthesize"])
     args = parser.parse_args()

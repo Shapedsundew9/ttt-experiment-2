@@ -1,0 +1,16 @@
+{
+  "financial-controller": {
+    "PreToolUse": [
+      {
+        "matcher": "invoke_subagent",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./scripts/financial_controller.py",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
